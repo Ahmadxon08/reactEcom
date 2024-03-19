@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Header.scss";
 import { useEffect, useState } from "react";
+import { useShopContext } from "./ShopProvider";
 const logo = "./assets/img/Logo.png";
 const heart = "./assets/img/heart.png";
 const search = "./assets/img/search.png";
@@ -8,6 +9,7 @@ const account = "./assets/img/account.png";
 const shopping = "./assets/img/shopping.png";
 
 const Header = () => {
+  const { cartItems } = useShopContext();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => {
@@ -26,7 +28,7 @@ const Header = () => {
   }, [isNavOpen]);
   console.log(isNavOpen);
   return (
-    <div className='header'>
+    <div className="header">
       <div className="container">
         <nav className="nav">
           <div className="nav_logo">
@@ -69,8 +71,11 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/cart">
                   <img src={shopping} alt="shopping" />
+                  {cartItems.lenght > 0 && (
+                    <span className="cart_counter"> {cartItems.lenght}</span>
+                  )}
                 </Link>
               </li>
             </ul>

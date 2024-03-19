@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import "./Home.scss";
 
 import axios from "axios";
-
+import { Link } from "react-router-dom";
+import { useShopContext } from "../../components/header/ShopProvider";
 
 const range1 = "./assets/img/range1.png";
 const range2 = "./assets/img/range2.png";
@@ -15,6 +16,7 @@ const bed2 = "./assets/img/bed2.png";
 
 const Home = () => {
 
+  const {addToCart}=useShopContext();
   const [cards, setCards] = useState([]);
 
   const fetchCards = async () => {
@@ -94,7 +96,9 @@ const Home = () => {
                       </div>
                     </div>
                     <div className="pro_mode">
-                      <button>Add to cart</button>
+                      <Link to={'/cart'}>
+                        <button onClick={()=>addToCart(card)}>Add to cart</button>
+                      </Link>
                       <div className="mode_links">
                         <div className="mode_link">
                           <img src={share} alt="share" />
