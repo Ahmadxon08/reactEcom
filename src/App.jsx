@@ -7,6 +7,7 @@ import Cart from "./pages/cart/Cart";
 import Home from "./pages/home/Home";
 import Shop from "./pages/shop/Shop";
 import ShopContextProvider from "./components/header/ShopProvider";
+import SinglePage from "./singlePage/SinglePage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/single" element={<SinglePage />} />
           </Routes>
           <Footer />
         </BrowserRouter>

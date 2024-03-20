@@ -89,7 +89,7 @@ const Home = () => {
                       <h1>{card.title}</h1>
                       <span>{card.category}</span>
                       <div className="row_text">
-                        <h1>{card.price}</h1>
+                        <h1>Rp{card.price}</h1>
                         <p>
                           <del>{card.discount}</del>
                         </p>
